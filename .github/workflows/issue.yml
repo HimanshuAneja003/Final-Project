@@ -1,3 +1,4 @@
+#issue
 name: Handle issues
 on: issues
 jobs:
