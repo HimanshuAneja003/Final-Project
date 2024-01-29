@@ -1,21 +1,8 @@
-name: Project Issue
-
-on: 
-  push
-
+name: Handle issues
+on: issues
 jobs:
-  Issue:
+  output-info:
     runs-on: ubuntu-latest
-    steps: 
-      - name: Get Code
-        uses: actions/checkout@v3
-      - name: Install NodeJS
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - name: Install dependencies
-        run: npm ci
-      - name: Run Lint
-        run: npm run lint
-      - name: Ecco
-        run: echo "Deploying ......."
+    steps:
+      - name: Output event details
+        run: echo "${{ toJSON(github.event) }}"
